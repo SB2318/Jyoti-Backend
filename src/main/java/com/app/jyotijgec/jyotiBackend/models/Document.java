@@ -17,11 +17,19 @@ public class Document extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "doc_type", nullable = false)
 	private DocumentType docType;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Column(nullable = false)
 	private String fileUrl;

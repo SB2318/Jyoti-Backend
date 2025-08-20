@@ -19,10 +19,18 @@ public class CommunityAdmin extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(nullable = false, length = 100)
 	private String name;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Column(nullable = false, unique = true, length = 150)
 	private String email;
@@ -38,13 +46,13 @@ public class CommunityAdmin extends BaseEntity {
 	private AdminRole role;
 
 	@Column(nullable = false)
-	private int passoutYear;
+	private Integer passoutYear;
 
 	@Column(nullable = false)
-	private int startYear;
+	private Integer startYear;
 
 	@Column(nullable = true, length = 1000)
-	private String addresss;
+	private String address;
 
 	@Column(nullable = true, length = 1000)
 	private String country;
@@ -99,28 +107,28 @@ public class CommunityAdmin extends BaseEntity {
 		this.role = role;
 	}
 
-	public int getPassoutYear() {
+	public Integer getPassoutYear() {
 		return passoutYear;
 	}
 
-	public void setPassoutYear(int passoutYear) {
+	public void setPassoutYear(Integer passoutYear) {
 		this.passoutYear = passoutYear;
 	}
 
-	public int getStartYear() {
+	public Integer getStartYear() {
 		return startYear;
 	}
 
-	public void setStartYear(int startYear) {
+	public void setStartYear(Integer startYear) {
 		this.startYear = startYear;
 	}
 
-	public String getAddresss() {
-		return addresss;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddresss(String addresss) {
-		this.addresss = addresss;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCountry() {
@@ -179,7 +187,7 @@ public class CommunityAdmin extends BaseEntity {
 		this.course = course;
 	}
 
-	@Column(nullable = false)
+	@Column(name = "active", nullable = false)
 	private boolean active = false;
 
 	@ManyToOne(fetch = FetchType.LAZY)

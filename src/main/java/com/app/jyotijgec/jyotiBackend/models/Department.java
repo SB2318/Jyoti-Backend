@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class Department extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(nullable = false, unique = true, length = 100)
 	private String name;
@@ -26,11 +26,30 @@ public class Department extends BaseEntity {
 	@ManyToMany(mappedBy = "departments")
 	private List<Course> courses = new ArrayList<>();
 
+	public Long getId() {
+		return id;
+	}
+
+	public List<Member> getMembers() {
+		return members;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setMembers(List<Member> members) {
+		this.members = members;
+	}
+
 	@OneToMany(mappedBy = "departments", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Alum> alums = new ArrayList<>();
 
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CommunityAdmin> admins = new ArrayList<>();
+
+	@OneToMany(mappedBy = "department")
+	private List<Member> members = new ArrayList<>();
 
 	public String getName() {
 		return name;

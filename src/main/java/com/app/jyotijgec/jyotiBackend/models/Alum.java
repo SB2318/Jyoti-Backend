@@ -17,7 +17,7 @@ public class Alum extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(nullable = false, length = 100)
 	private String name;
@@ -25,14 +25,22 @@ public class Alum extends BaseEntity {
 	@Column(nullable = false, unique = true, length = 150)
 	private String email;
 
-	@Column(nullable = true, unique = true, length = 150)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(nullable = true, length = 150)
 	private String phoneNo;
 
 	@Column(nullable = false, unique = true, length = 150)
 	private String whatsAppNo;
 
 	@Column(nullable = false)
-	private int passoutYear;
+	private Integer passoutYear;
 
 	@Column(nullable = false, length = 1000)
 	private String jobRole;
@@ -41,7 +49,7 @@ public class Alum extends BaseEntity {
 	private String company;
 
 	@Column(nullable = true, length = 1000)
-	private String addresss;
+	private String address;
 
 	@Column(nullable = true, length = 1000)
 	private String country;
@@ -56,7 +64,7 @@ public class Alum extends BaseEntity {
 	@JoinColumn(name = "document_id")
 	private Document document;
 
-	@Column(nullable = false)
+	@Column(name = "active", nullable = false)
 	private boolean active = false;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -95,11 +103,11 @@ public class Alum extends BaseEntity {
 		this.whatsAppNo = whatsAppNo;
 	}
 
-	public int getPassoutYear() {
+	public Integer getPassoutYear() {
 		return passoutYear;
 	}
 
-	public void setPassoutYear(int passoutYear) {
+	public void setPassoutYear(Integer passoutYear) {
 		this.passoutYear = passoutYear;
 	}
 
@@ -119,12 +127,12 @@ public class Alum extends BaseEntity {
 		this.company = company;
 	}
 
-	public String getAddresss() {
-		return addresss;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddresss(String addresss) {
-		this.addresss = addresss;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCountry() {
