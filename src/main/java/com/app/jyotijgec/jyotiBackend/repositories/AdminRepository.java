@@ -8,6 +8,6 @@ import com.app.jyotijgec.jyotiBackend.models.CommunityAdmin;
 @Repository
 public interface AdminRepository extends JpaRepository<CommunityAdmin, Long> {
 
-	// TO BE COntinue
+	// TO BE Continue
 
 }
